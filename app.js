@@ -1,26 +1,52 @@
-const heading = React.createElement("h1",
-    {
-id:'heading', class:' pt-4 font-semibold'
-},"Hello world from React!");
-/*
-<div class="parent">
-    <div class="child">
-        <h1>I am a H1 tag</h1>
-        <h2> i AM A H2 Tag</h2>
-    </div>
-    <div class="child">
-        <h1>I am a H1 tag</h1>
-        <h2> i AM A H2 Tag</h2>
-    </div>
-</div>
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-*/
+// JSX is transpilled before it reaches JS ==> Trnaspiling is done by BAbel managed by parcel
+// JSX ==>  Babel transpiles it into React.createElement ==> ReactElement.JS object ==> HTML (render)
 
-const nestedEle = React.createElement("div",{class:"parent"},  
-    [React.createElement("div",{class:"child"},  
-        [React.createElement("h1",{},"I am a H1 tag"), React.createElement("h2",{},"I am a H2 Tag")]), React.createElement("div",{class:"child2"},   [React.createElement("h1",{},"This is h1 tag of child 2 "), React.createElement("h2",{},"This is h2 tag of child2")]
-    )]
+//React Element
+const JsxHeader = (<h1 className=
+"heading"
+> hellow from Jsx Window</h1>);
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+const HeaderComp = ()=> JsxHeader;
+const Headercomp2 = () => <h1 className="heading">Hi from comp </h1>;
+
+const HeaderComp3 = () =>(
+    <h1 className="head">
+        H from comp3 </h1>
 );
 
-const root = ReactDOM.createRoot(document.getElementById("hello"));
-root.render(nestedEle);
+const Headercomp4 =()=> {
+ <h1 className="heade" > hello from5</h1>;
+}
+
+const HeaderComp5=() => {
+
+return  <h1 className = "Head" >Hellow from comp 5</h1>;
+}
+
+
+// all the headercomp are same.
+
+
+const NestedJsx =() =>{
+    <div>
+        <h1 className='nested'   >
+            Hello guys 
+        </h1>
+    </div>
+}
+
+// or 
+
+const Nested2 = () => (
+    <div id="container">
+        <h1>
+            hlw from nested 2 
+        </h1>
+    </div>
+);
+
+root.render(JsxHeader)
