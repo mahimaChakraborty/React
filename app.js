@@ -1,52 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// JSX is transpilled before it reaches JS ==> Trnaspiling is done by BAbel managed by parcel
-// JSX ==>  Babel transpiles it into React.createElement ==> ReactElement.JS object ==> HTML (render)
+const Title = ()=> (
+    <h1> React Header </h1>
+)
 
-//React Element
-const JsxHeader = (<h1 className=
-"heading"
-> hellow from Jsx Window</h1>);
-const root = ReactDOM.createRoot(document.getElementById('root'))
-
-const HeaderComp = ()=> JsxHeader;
-const Headercomp2 = () => <h1 className="heading">Hi from comp </h1>;
-
-const HeaderComp3 = () =>(
-    <h1 className="head">
-        H from comp3 </h1>
-);
-
-const Headercomp4 =()=> {
- <h1 className="heade" > hello from5</h1>;
+// this is also valid 
+const Title2 = function(){
+    return (<h1> component title 2</h1>);
 }
 
-const HeaderComp5=() => {
+const elem = <span> i am an elemnet inside react elemet </span>
+const title = (
+    <h2>    
+        Hey i am just a react elemets which ultimately is a Java script object
+        {elem}
+    </h2>
+)
 
-return  <h1 className = "Head" >Hellow from comp 5</h1>;
-}
+// This is called component composition:-  adding/ rendering  a  component inside another component 
 
+//  <Cpom name/> this is how babel understands it 
+const ContentPage = () => (
+    <div> 
+        <Title/>
+        <Title2/>
+        <Title2></Title2>
+        {title} 
+        {console.log('i am a normal javascript')}
+        {2+2}
 
-// all the headercomp are same.
+        <p> let's learn react </p>
+                      </div>
+)
 
+// anytjing inside {} will be considered as javscript 
+// this {} jsx sanitises it first. i.e. it stops the Cross Side Scripting (XSS) attacks . 
 
-const NestedJsx =() =>{
-    <div>
-        <h1 className='nested'   >
-            Hello guys 
-        </h1>
-    </div>
-}
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// or 
-
-const Nested2 = () => (
-    <div id="container">
-        <h1>
-            hlw from nested 2 
-        </h1>
-    </div>
-);
-
-root.render(JsxHeader)
+root.render(<ContentPage/>);
